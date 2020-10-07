@@ -6,6 +6,7 @@ indent() {
 
 echo "-----> Install ffmpeg"
 BUILD_DIR=$1
+echo "BUILD_DIR = " $BUILD_DIR
 VENDOR_DIR="ffmpeg-vendor"
 DOWNLOAD_URL="https://johnvansickle.com/ffmpeg/builds/ffmpeg-git-amd64-static.tar.xz"
 
@@ -20,6 +21,7 @@ curl -L --silent $DOWNLOAD_URL | tar xJ --strip-components=1
 
 echo "exporting PATH" | indent
 PROFILE_PATH="$BUILD_DIR/.profile.d/ffmpeg.sh"
+echo "PATH = " $PROFILE_PATH
 mkdir -p $(dirname $PROFILE_PATH)
 echo 'export PATH="$PATH:${HOME}/vendor/ffmpeg"' >> $PROFILE_PATH
 echo "PROFILE_PATH = " $PROFILE_PATH
